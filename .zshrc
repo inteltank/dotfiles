@@ -1,6 +1,8 @@
 source ~/.zplug/init.zsh
+source ~/.bash_profile
 
-
+autoload -U compinit
+compinit
 zplug "zplug/zplug"
 
 zplug "~/.zsh", from:local, use:"<->_*.zsh"
@@ -24,7 +26,11 @@ zplug "~/.zsh", from:local, use:"<->_*.zsh"
   zplug check || zplug install
   zplug load
 }
+setopt auto_pushd
+
 zplug 'b4b4r07/tmux-powertools', \
     use:init.zsh, \
     hook-load:'tmux-loader'
 zplug load
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

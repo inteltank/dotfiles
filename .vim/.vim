@@ -1,1 +1,0 @@
-/Users/t.sawada/dotfiles/.vim
