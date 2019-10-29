@@ -28,9 +28,19 @@ zplug "~/.zsh", from:local, use:"<->_*.zsh"
 }
 setopt auto_pushd
 
-zplug 'b4b4r07/tmux-powertools', \
-    use:init.zsh, \
-    hook-load:'tmux-loader'
-zplug load
+if [[ ! -n $TMUX ]]; then
+  tmux new-session
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function peco-src() {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+	  Buffer "cd ${selected_dir}"
+	  zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
