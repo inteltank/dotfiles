@@ -28,9 +28,8 @@ zplug "~/.zsh", from:local, use:"<->_*.zsh"
 }
 setopt auto_pushd
 
-zplug 'b4b4r07/tmux-powertools', \
-    use:init.zsh, \
-    hook-load:'tmux-loader'
-zplug load
+if [[ ! -n $TMUX ]]; then
+  tmux new-session
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
