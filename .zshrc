@@ -45,8 +45,3 @@ function peco-src() {
 zle -N peco-src
 bindkey '^]' peco-src
 
-function peco-open() {
-	local selected_file=$(ls -l -a | peco --query "$LBUFFER")
-	if
-	fi
-}
