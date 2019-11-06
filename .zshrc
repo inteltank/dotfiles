@@ -44,3 +44,6 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+alias ll='ls -l '
+
