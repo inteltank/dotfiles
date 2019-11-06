@@ -47,3 +47,7 @@ bindkey '^]' peco-src
 
 alias ll='ls -l '
 
+function peco-open () {
+	open `find . | peco --initial-filter Migemo`
+}
+alias op=peco-open
