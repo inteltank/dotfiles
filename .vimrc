@@ -36,3 +36,25 @@ Plug '~/my-prototype-plugin'
 Plug 'scrooloose/nerdtree'
 " Initialize plugin system
 call plug#end()
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set list                " 不可視文字の可視化
+set number              " 行番号の表示
+set ruler               " カーソル位置が右下に表示される
+set wildmenu            " コマンドライン補完が強力になる
+set showcmd             " コマンドを画面の最下部に表示する
+set showmatch           " 対応する括弧などをハイライト表示する
+" [ と打ったら [] って入力されてしかも括弧の中にいる(以下同様)
+inoremap [ []<left>
+inoremap ( ()<left>
+inoremap { {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
+" [ と打ったら [] って入力されてしかも括弧の中にいる(以下同様)
+inoremap [ []<left>
+inoremap ( ()<left>
+inoremap { {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
