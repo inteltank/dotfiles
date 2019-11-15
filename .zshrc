@@ -51,3 +51,4 @@ function peco-open () {
 	open `find . | peco --initial-filter Migemo`
 }
 alias op=peco-open
+alias tree = 'tree -NC'
