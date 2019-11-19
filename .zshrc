@@ -51,3 +51,8 @@ function peco-open () {
 	open `find . | peco --initial-filter Migemo`
 }
 alias op=peco-open
+
+function peco-cd-current (){
+  cd `ls | peco --initial-filter Migemo`
+}
+alias cdc=peco-cd-current

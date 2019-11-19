@@ -40,7 +40,6 @@ call plug#end()
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set list                " 不可視文字の可視化
 set number              " 行番号の表示
 set ruler               " カーソル位置が右下に表示される
 set wildmenu            " コマンドライン補完が強力になる
@@ -58,3 +57,5 @@ inoremap ( ()<left>
 inoremap { {}<left>
 inoremap " ""<left>
 inoremap ' ''<left>
+
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
