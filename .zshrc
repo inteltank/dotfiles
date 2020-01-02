@@ -57,4 +57,3 @@ function peco-cd-current (){
 }
 alias cdc=peco-cd-current
 
-alias tree = 'tree -NC'
