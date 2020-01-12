@@ -56,4 +56,3 @@ function peco-cd-current (){
   cd `ls | peco --initial-filter Migemo`
 }
 alias cdc=peco-cd-current
-
