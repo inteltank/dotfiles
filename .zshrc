@@ -57,5 +57,4 @@ function peco-cd-current (){
 }
 alias cdc=peco-cd-current
 
-alias g=open $(git config remote.origin.url)
 
