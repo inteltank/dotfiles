@@ -47,3 +47,11 @@ set showcmd             " コマンドを画面の最下部に表示する
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 set clipboard=unnamed,autoselect
 
+augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * hi Normal ctermbg=235 "挿入モード時の色
+    autocmd InsertLeave * hi Normal ctermbg=0 "通常モード時の色
+augroup END 
+
+set ttimeoutlen=0
+
