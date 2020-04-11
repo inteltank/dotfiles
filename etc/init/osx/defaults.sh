@@ -145,6 +145,8 @@ echo "##########################################################################
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
 defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock orientation left
+
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
