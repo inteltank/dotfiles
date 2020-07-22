@@ -58,4 +58,4 @@ function peco-cd-current (){
 }
 alias cdc=peco-cd-current
 
-
+alias ide="~/.tmux/ide.sh"
