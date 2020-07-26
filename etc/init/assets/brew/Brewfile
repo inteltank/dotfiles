@@ -26,13 +26,8 @@ cask 'bettertouchtool'
 cask 'clipy'
 cask 'dash'
 cask 'docker'
-cask 'google-chrome'
 cask 'google-drive-file-stream'
-cask 'gyazo'
 cask 'karabiner-elements'
 cask 'keycast'
-cask 'slack'
-cask 'the-unarchiver'
-cask 'vagrant'
 
 # vim: ft=conf

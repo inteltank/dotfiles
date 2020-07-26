@@ -8,4 +8,4 @@
 	root = ~/src
 [credential] 
 	helper = !aws codecommit credential-helper $@
-  UseHttpPath = true 
+	UseHttpPath = true
