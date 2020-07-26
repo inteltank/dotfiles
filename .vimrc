@@ -100,6 +100,7 @@ augroup NERD
     let g:nerdtree_tabs_open_on_console_startup=2
 augroup END
 
+set laststatus=2
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'mode_map': {'c': 'NORMAL'},
