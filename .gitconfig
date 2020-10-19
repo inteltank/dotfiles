@@ -7,6 +7,6 @@
   pull-all = !"for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done; git fetch --all; git pull --all"
 [ghq]
 	root = ~/src
-[credential] 
-	helper = !aws codecommit credential-helper $@
-	UseHttpPath = true
+[user]
+	email = tsawada@netprotections.co.jp
+	name = 澤田智希

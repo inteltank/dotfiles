@@ -58,6 +58,20 @@ set ruler               " カーソル位置が右下に表示される
 set wildmenu            " コマンドライン補完が強力になる
 set showcmd             " コマンドを画面の最下部に表示する
 
+" Split window
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+
+" Move window
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
+
+"Switch tab
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 set clipboard=unnamed,autoselect
 
