@@ -10,7 +10,6 @@ brew 'tree'
 brew 'vim'
 brew 'zsh'
 brew 'mas'
-brew 'zplug'
 brew 'zsh'
 brew 'exa'
 brew 'bat'
@@ -19,7 +18,10 @@ brew 'fd'
 brew 'procs'
 brew 'ripgrep'
 brew 'lazygit'
+brew 'reattach-to-user-namespace'
 
+cask 'google-chrome'
+cask 'gyazo'
 cask '1password'
 cask 'alfred'
 cask 'appcleaner'
@@ -31,4 +33,8 @@ cask 'google-drive-file-stream'
 cask 'karabiner-elements'
 cask 'keycast'
 
+mas "Slack", id:803453959
+mas "Kindle", id:405399194
+mas "Yoink", id:457622435
+mas "BetterSnapTool", id:417375580
 # vim: ft=conf
