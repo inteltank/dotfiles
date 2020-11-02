@@ -1,6 +1,7 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 source ~/.bash_profile
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 
 autoload -U compinit
 compinit
@@ -11,9 +12,9 @@ zplug "~/.zsh", from:local, use:"<->_*.zsh"
 : "プラグイン" && {
   zplug "zsh-users/zsh-completions" # 多くのコマンドに対応する入力補完 … https://github.com/zsh-users/zsh-completions
   zplug "mafredri/zsh-async" # "sindresorhus/pure"が依存している
-  zplug "sindresorhus/pure", use:pure.zsh, as:theme && { # 美しく最小限で高速なプロンプト … https://github.com/sindresorhus/pure
-    export PURE_PROMPT_SYMBOL="❯❯❯"
-  }
+#  ZPLUG "SINDRESORHUS/PURE", USE:PURE.ZSH, AS:THEME && { # 美しく最小限で高速なプロンプト … HTTPS://GITHUB.COM/SINDRESORHUS/PURE
+#    EXPORT PURE_PROMPT_SYMBOL="❯❯❯"
+#  }
   zplug "zsh-users/zsh-syntax-highlighting", defer:2 # fishシェル風のシンタクスハイライト … https://github.com/zsh-users/zsh-syntax-highlighting
   zplug "supercrabtree/k" # git情報を含んだファイルリストを表示するコマンド … https://github.com/supercrabtree/k
   zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf # あいまい検索ができるコマンド … https://github.com/junegunn/fzf
