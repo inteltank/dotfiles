@@ -44,6 +44,7 @@ function peco-src () {
   fi
   zle clear-screen
 }
+
 zle -N peco-src
 bindkey '^]' peco-src
 
@@ -54,9 +55,23 @@ function peco-open () {
 }
 alias op=peco-open
 
+function change-codecommit-credential(){
+  local selected_dir=$(find ~ -maxdepth 1 |grep netrc | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+	  cp ${selected_dir} ~/.netrc
+	fi
+	echo '-----------------------------'
+	echo 'view current "~/.netrc" settings'
+	echo '-----------------------------'
+	sed -n 1,3p ~/.netrc
+}
+alias ccc='change-codecommit-credential'
+
 function peco-cd-current (){
   cd `ls | peco --initial-filter Migemo`
 }
 alias cdc=peco-cd-current
 
 alias ide="~/.tmux/ide.sh"
+
+alias cdSuperStream= "cd /Volumes/GoogleDrive/マイドライブ/月次部署共有と予実管理/FY20/【master】SuperStream実績/.prospect-analytics"
