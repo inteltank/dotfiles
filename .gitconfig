@@ -1,12 +1,61 @@
-[github]
-	user = "inteltank"
-[alias]
-	hub-new-public-repo = "!REPO=$(basename $PWD) GHUSER=$(git config --get github.user); curl -u $GHUSER https://api.github.com/user/repos -d {\\\"name\\\":\\\"$REPO\\\"} --fail; git remote add origin git@github.com:$GHUSER/$REPO.git; git push origin master"
-	hub-new-private-repo = "!REPO=$(basename $PWD) GHUSER=$(git config --get github.user); curl -u $GHUSER https://api.github.com/user/repos -d {\\\"name\\\":\\\"$REPO\\\"\\,\\\"private\\\":\\\"true\\\"} --fail; git remote add origin git@github.com:$GHUSER/$REPO.git; git push origin master"
-  alias = !"if test -z $1; then loop=; for k in `git config --get-regexp ^alias\\. | sort | sed -e 's/^alias\\.\\(\\S*\\).*/\\1/g'`; do echo -n $k; loop="${loop}1"; if test ${#loop} -lt 5; then echo -n '\t'; else echo; loop=; fi; done; exit; fi; git config --list | grep ^alias\\.$1= | sed -e s/^alias\\.//; exit;""''}"}"')'"
-  pull-all = !"for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done; git fetch --all; git pull --all"
 [ghq]
-	root = ~/src
+  root = ~/src
 [user]
-	email = tsawada@netprotections.co.jp
-	name = 澤田智希
+  email = tsawada@netprotections.co.jp
+  name = Tomoki Sawada
+																					#         	  								  root = ~/.ghq
+[core]
+  excludesfile = ~/.gitignore
+  editor = nvim
+[push]
+  default = simple
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
+
+[alias]
+  a = "!git status --short | peco | awk '{print $2}' | xargs git add"
+  d = diff
+  co = checkout
+  ci = commit
+  ca = commit -a
+  ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+  st = status
+  br = branch
+  ba = branch -a
+  bm = branch --merged
+  bn = branch --no-merged
+  df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  open = "!hub browse"
+  type = cat-file -t
+  dump = cat-file -p
+  find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+  # edit conflicted file on merge
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  # add conflicted file on merge
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+[github]
+  user = inteltank
+[hub]
+  protocol = https
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process

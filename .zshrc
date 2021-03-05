@@ -10,29 +10,19 @@ zplug "zplug/zplug"
 zplug "~/.zsh", from:local, use:"<->_*.zsh"
 
 : "プラグイン" && {
-  zplug "zsh-users/zsh-completions" # 多くのコマンドに対応する入力補完 … https://github.com/zsh-users/zsh-completions
-  zplug "mafredri/zsh-async" # "sindresorhus/pure"が依存している
-#  ZPLUG "SINDRESORHUS/PURE", USE:PURE.ZSH, AS:THEME && { # 美しく最小限で高速なプロンプト … HTTPS://GITHUB.COM/SINDRESORHUS/PURE
-#    EXPORT PURE_PROMPT_SYMBOL="❯❯❯"
-#  }
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2 # fishシェル風のシンタクスハイライト … https://github.com/zsh-users/zsh-syntax-highlighting
-  zplug "supercrabtree/k" # git情報を含んだファイルリストを表示するコマンド … https://github.com/supercrabtree/k
-  zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf # あいまい検索ができるコマンド … https://github.com/junegunn/fzf
+  zplug "zsh-users/zsh-completions", lazy:true # 多くのコマンドに対応する入力補完 … https://github.com/zsh-users/zsh-completions
+  zplug "mafredri/zsh-async", lazy:true # "sindresorhus/pure"が依存している
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2, lazy:true # fishシェル風のシンタクスハイライト … https://github.com/zsh-users/zsh-syntax-highlighting
+  zplug "supercrabtree/k", lazy:true # git情報を含んだファイルリストを表示するコマンド … https://github.com/supercrabtree/k
   zplug "junegunn/fzf", as:command, use:bin/fzf-tmux # tmuxでfzfを使えるようにするプラグイン
-  zplug "junegunn/fzf", use:shell/key-bindings.zsh # Ctrl-Rで履歴検索、Ctrl-Tでファイル名検索補完できる
   zplug "junegunn/fzf", use:shell/completion.zsh # cd **[TAB], vim **[TAB]などでファイル名を補完できる
-  zplug "b4b4r07/enhancd", use:init.sh # cdコマンドをインタラクティブにするプラグイン … https://github.com/b4b4r07/enhancd
-  zplug 'b4b4r07/gomi', as:command, from:gh-r # 消したファイルをゴミ箱から復元できるrmコマンド代替 … https://github.com/b4b4r07/gomi
   zplug "momo-lab/zsh-abbrev-alias" # 略語展開(iab)を設定するためのプラグイン … http://qiita.com/momo-lab/items/b1b1afee313e42ba687b
-  zplug "paulirish/git-open", as:plugin # GitHub, GitLab, BitBucketを開けるようにするコマンド … https://github.com/paulirish/git-open
+  zplug "paulirish/git-open", as:plugin, lazy:true # GitHub, GitLab, BitBucketを開けるようにするコマンド … https://github.com/paulirish/git-open
   zplug check || zplug install
   zplug load
 }
 setopt auto_pushd
 
-if [[ ! -n $TMUX ]]; then
-  tmux new-session
-fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -71,7 +61,14 @@ function peco-cd-current (){
   cd `ls | peco --initial-filter Migemo`
 }
 alias cdc=peco-cd-current
-
 alias ide="~/.tmux/ide.sh"
 
-alias cdSuperStream= "cd /Volumes/GoogleDrive/マイドライブ/月次部署共有と予実管理/FY20/【master】SuperStream実績/.prospect-analytics"
+alias g="git"
+alias vi="nvim"
+alias vim="nvim"
+
+alias tmux="tmux -2"
+
+if [[ ! -n $TMUX ]]; then
+  tmux new-session
+fi
