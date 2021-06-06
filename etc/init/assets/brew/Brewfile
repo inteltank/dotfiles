@@ -30,6 +30,8 @@ cask 'dash'
 cask 'docker'
 cask 'karabiner-elements'
 cask 'keycast'
+cask 'deepl'
+cask 'grammarly'
 
 mas "Slack", id:803453959
 mas "Kindle", id:405399194
