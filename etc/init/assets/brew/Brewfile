@@ -19,6 +19,7 @@ brew 'procs'
 brew 'ripgrep'
 brew 'lazygit'
 brew 'reattach-to-user-namespace'
+brew 'tig'
 
 cask 'google-chrome'
 cask 'gyazo'
