@@ -8,6 +8,7 @@ set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
+set -g GOPATH $HOME/src
 
 # aliases
 alias ls "ls -p -G"
@@ -26,6 +27,11 @@ set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 
 eval (/opt/homebrew/bin/brew shellenv)
+
+# powerline
+
+set fish_function_path $fish_function_path "/opt/homebrew/lib/pyhon3.9/site-packages/powerline/bindings/fish"
+powerline-setup
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
