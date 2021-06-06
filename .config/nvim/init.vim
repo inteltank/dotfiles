@@ -86,10 +86,4 @@ endif
 " shortcut/alias/command
 " ---------------------------------------
 
-" Immediatery describe and reflect .vimrc that come to mind.
-nnoremap <F5> :<C-u>edit ~/.config/nvim/init.vim<CR>
-nnoremap <F6> :<C-u>source ~/.config/nvim/init.vim<CR>
-
-" Because <ESC> is far away and <C-[> is also
-" https://vim.fandom.com/wiki/Avoid_the_escape_key
-inoremap <silent> jj <ESC>
+source ~/.vimrc.maps
