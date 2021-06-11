@@ -1,3 +1,15 @@
+# initilize for M1 or not M1
+if uname -m | grep --quiet "arm64" 2>&1 > /dev/null ;
+  set -g PIP3_REPOSITORY /opt/homebrew/lib/python3.9/site-packages 
+  eval (/opt/homebrew/bin/brew shellenv)
+else
+  set -g PIP3_REPOSITORY /usr/local/lib/python3.9/site-packages
+end
+
+
+set fish_function_path $fish_function_path $PIP3_REPOSITORY/powerline/bindings/fish
+powerline-setup
+
 set fish_greeting ""
 
 set -gx TERM xterm-256color
@@ -20,35 +32,21 @@ alias vi nvim
 alias vim nvim
 command -qv nvim && alias vim nvim
 
+alias ccc change-codecommit-credential
+bind \c] peco-src 
 set -gx EDITOR nvim
 
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 
-eval (/opt/homebrew/bin/brew shellenv)
-
-# powerline
-
-set fish_function_path $fish_function_path "/opt/homebrew/lib/pyhon3.9/site-packages/powerline/bindings/fish"
-powerline-setup
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
 
 # Go
-set -g GOPATH $HOME/go
-set -gx PATH $GOPATH/bin $PATH
+set -g GOPATH $HOME/src
 
-# NVM
-function __check_rvm --on-variable PWD --description 'Do nvm stuff'
-  status --is-command-substitution; and return
-
-  if test -f .nvmrc; and test -r .nvmrc;
-    nvm use
-  else
-  end
-end
 
 switch (uname)
   case Darwin
@@ -62,4 +60,11 @@ end
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
+end
+
+# start shell with tmux
+
+
+if test -z $TMUX && status --is-login
+    attach_tmux_session_if_needed
 end
