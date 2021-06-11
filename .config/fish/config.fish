@@ -1,14 +1,9 @@
 # initilize for M1 or not M1
 if uname -m | grep --quiet "arm64" 2>&1 > /dev/null ;
-  set -g PIP3_REPOSITORY /opt/homebrew/lib/python3.9/site-packages 
   eval (/opt/homebrew/bin/brew shellenv)
-else
-  set -g PIP3_REPOSITORY /usr/local/lib/python3.9/site-packages
 end
 
 
-set fish_function_path $fish_function_path $PIP3_REPOSITORY/powerline/bindings/fish
-powerline-setup
 
 set fish_greeting ""
 
@@ -55,6 +50,15 @@ switch (uname)
     # Do nothing
   case '*'
     source (dirname (status --current-filename))/config-windows.fish
+end
+
+function prompt_arch -d "Display current CPU architecture."
+  switch (uname -m)
+    case arm64
+      prompt_segment white cyan "arm"
+    case x86_64
+      prompt_segment cyan white "x64"
+  end
 end
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish

@@ -1,1 +1,3 @@
 fish_variables
+completations/
+conf.d/
