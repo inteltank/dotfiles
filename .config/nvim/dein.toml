@@ -8,6 +8,9 @@ repo = 'altercation/vim-colors-solarized'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
 repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
