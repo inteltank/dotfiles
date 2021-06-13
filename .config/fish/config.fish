@@ -26,6 +26,7 @@ alias g git
 alias vi nvim
 alias vim nvim
 command -qv nvim && alias vim nvim
+alias ghu "ghq list | ghq get --update --parallel"
 
 alias ccc change-codecommit-credential
 bind \c] peco-src 
