@@ -13,19 +13,23 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:dein_dir = expand('~/.cache/dein')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-  call dein#load_toml(s:toml_file)
+
+  let g:rc_dir = expand('~/.config/nvim')
+  let s:toml = g:rc_dir . '/dein.toml'
+  call dein#load_toml(s:toml,      {'lazy': 0})
+
   call dein#end()
   call dein#save_state()
 endif
-
-if has('vim_starting') && dein#check_install()
+if dein#check_install()
   call dein#install()
 endif
+
 
 " ---------------------------------------
 " Default
@@ -54,7 +58,7 @@ set cursorline
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
-highlight LineNr       cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
   autocmd!
@@ -69,7 +73,7 @@ endif
 
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme iceberg
 
 
 if !exists('*fugitive#statusline')
