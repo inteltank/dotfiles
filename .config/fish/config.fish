@@ -53,14 +53,6 @@ switch (uname)
     source (dirname (status --current-filename))/config-windows.fish
 end
 
-function prompt_arch -d "Display current CPU architecture."
-  switch (uname -m)
-    case arm64
-      prompt_segment white cyan "arm"
-    case x86_64
-      prompt_segment cyan white "x64"
-  end
-end
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
