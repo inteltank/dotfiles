@@ -1,3 +1,9 @@
 .DS_Store
 bin
 .config/configstore/
+
+.config/fish/functions/tide*
+.config/fish/functions/*tide*
+.config/completions/tide.fish
+.config/fish/functions/fish_*
+
