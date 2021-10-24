@@ -7,3 +7,4 @@ bin
 .config/completions/tide.fish
 .config/fish/functions/fish_*
 
+.config/fish/fish_variables
