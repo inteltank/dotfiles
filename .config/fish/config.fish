@@ -1,16 +1,12 @@
-# initilize for M1 or not M1
+# Configuration to use packages installed by homebrew on M1 Mac
 if uname -m | grep --quiet "arm64" 2>&1 > /dev/null ;
   eval (/opt/homebrew/bin/brew shellenv)
 end
 
-
-
 set fish_greeting ""
 
-set -gx TERM xterm-256color
 
 # theme
-set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
@@ -39,6 +35,7 @@ set -gx PATH ~/.local/bin $PATH
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
+set -gx PATH ~/.nodebrew/current/bin $PATH
 
 # Go
 set -g GOPATH $HOME/src
@@ -61,6 +58,3 @@ end
 
 # start shell with tmux
 
-if test -z $TMUX && status --is-login
-    attach_tmux_session_if_needed
-end

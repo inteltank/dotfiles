@@ -61,3 +61,13 @@ repo = 'neovim/python-client'
 [[plugins]]
 repo = 'dag/vim-fish'
 
+[[plugins]]
+repo = 'jugegunn/fzf'
+build = './install --bin'
+merged = 0
+
+[[plugins]]
+repo = 'jugegunn/fzf.vim'
+depends = 'fzf'
+
+
