@@ -1,7 +1,7 @@
 [ghq]
   root = ~/src
 [user]
-  email = tsawada@netprotections.co.jp
+  email = sawadats0127@gmail.com
   name = Tomoki Sawada
 [core]
   excludesfile = ~/.gitignore
@@ -15,6 +15,8 @@
   interactive = auto
   grep = auto
   ui = auto
+[init]
+  defaultBranch = main
 
 [alias]
   a = "!git status --short | peco | awk '{print $2}' | xargs git add"
