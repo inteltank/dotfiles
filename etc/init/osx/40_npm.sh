@@ -17,7 +17,6 @@ if ! is_osx; then
 fi
 
 if has "npm"; then
-    
     if ! npm install -prefix "$DOCPATH"/etc/init/assets ; then
         log_fail "error: failed to npm install"
         exit 1
