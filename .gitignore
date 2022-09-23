@@ -1,10 +1,6 @@
 .DS_Store
 bin
-.config/configstore/
-
-.config/fish/functions/tide*
-.config/fish/functions/*tide*
-.config/completions/tide.fish
-.config/fish/functions/fish_*
-
-.config/fish/fish_variables
+.config/
+!.config/nvim
+!.config/fish
+.config/fish/_*

@@ -2,7 +2,7 @@
   root = ~/src
 [user]
   email = sawadats0127@gmail.com
-  name = Tomoki Sawada
+  name = inteltank
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
