@@ -11,7 +11,8 @@ ts.setup {
     disable = {},
   },
   ensure_installed = {
-    'tsx',
+    'typescript',
+    'tsx',https://typescriptbook.jp/overview/before-typescript
     'lua',
     'json',
     'css'
